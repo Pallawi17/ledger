@@ -1,22 +1,13 @@
 from flask import Flask
-from flask_restful import Resource, Api
+from flask_restful import Api
 # __name__ = '__main__'
-app = Flask(__name__) #app
-api = Api(app)
+from routes import set_routes
 
-class HealthCheckResource(Resource):
-    def get(self):
-        return {'hello': 'world'}
 
-    def post(self):
-        return {'name': 'john'}
-
-class UserResource(Resource):
-    def put(self):
-        return {'age': 25}
-
-api.add_resource(UserResource, '/user')
-api.add_resource(HealthCheckResource, '/health-check')
+app: Flask = Flask(__name__) #app
+api: Api = Api(app)
+set_routes(api)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
+

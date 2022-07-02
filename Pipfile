@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 flask-restful = "*"
+sqlalchemy-migrate = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

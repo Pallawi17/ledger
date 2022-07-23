@@ -1,6 +1,9 @@
-from flask_restful import Resource
+
+from src.resources.base import BaseResourse
 
 
-class HealthCheckResource(Resource):
+class HealthCheckResource(BaseResourse):
     def get(self):
         return {'heart_beat': 'alive'}
+
+

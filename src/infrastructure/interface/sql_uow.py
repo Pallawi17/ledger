@@ -12,7 +12,7 @@ class SqlUow(abc.ABC):
     def __enter__(self):
         return self
 
-    def __exit__(self):
+    def __exit__(self, *args):
         self.rollback()
 
     def get_session(self) -> Session:

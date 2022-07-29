@@ -21,8 +21,8 @@ class LedgerSqlUow(SqlUow):
         self._session: Session = self.session_factory()
         return super().__enter__()
 
-    def __exit__(self):
-        super().__exit__()
+    def __exit__(self, *args):
+        super().__exit__(*args)
         self._session.close()
 
     def _commit(self):
